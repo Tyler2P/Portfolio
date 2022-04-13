@@ -1,0 +1,186 @@
+/* Custom Classes */
+.g-ns, .no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  display: none;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(170, 170, 170);
+}
+body::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:focus {
+  background: rgb(113, 113, 113);
+}
+
+/* Default Colours */
+body {
+  transition: background-color 300ms ease;
+  -webkit-transition: background-color 300ms ease;
+  overflow-x: hidden;
+  background-color: rgb(54, 57, 63);
+}
+
+/* Text styles */
+h1:not(.color-static),
+h2:not(.color-static),
+h3:not(.color-static),
+h4:not(.color-static),
+h5:not(.color-static),
+h6:not(.color-static),
+p:not(.color-static) {
+  transition: color 300ms ease;
+  -webkit-transition: color 300ms ease;
+  color: rgb(213, 214, 215);
+}
+h1.color-reverse,
+h2.color-reverse,
+h3.color-reverse,
+h4.color-reverse,
+h5.color-reverse,
+h6.color-reverse,
+p.color-reverse {
+  color: rgb(54, 57, 63);
+}
+
+/* Prevent symbols being highlighted */
+.fas.fa-disable-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* No-script Warning */
+div#noscript-display {
+  display: grid;
+  place-items: center;
+  background-color: rgb(220, 53, 69);
+  min-height: 30px;
+}
+div#noscript-display h5 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Responsive Styling - Color Changes */
+.btn-responsive, .badge-responsive {
+  color: rgb(33 37 41);
+  background-color: rgb(248 249 250);
+  border-color: rgb(248 249 250);
+}
+.btn-responsive:hover {
+  color: rgb(33 37 41);
+  background-color: rgb(226 230 234);
+  border-color: rgb(217 224 229);
+}
+
+.btn-responsive.color-reverse, .badge-responsive.color-reverse {
+  color: rgb(255, 255, 255);
+  background-color: rgb(51, 58, 64);
+  border-color: rgb(51, 58, 64);
+}
+.btn-responsive.color-reverse:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(35, 39, 43);
+  border-color: rgb(29, 33, 36);
+}
+
+/* Page Content Wrapper Animations*/
+#root > .root-page.fadeIn {
+  animation: 500ms fadeIn forwards;
+}
+
+#root > .root-page.fadeOut {
+  animation: 500ms fadeOut forwards;
+}
+
+@media (max-width: 600px) {
+  #root > .root-page.fadeIn {
+    animation-delay: 150ms;
+  }
+  #root > .root-page.fadeOut {
+    animation-delay: 150ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(-20px, 0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: rgb(213, 214, 215);
+  }
+  h1:not(.color-static),
+  h2:not(.color-static),
+  h3:not(.color-static),
+  h4:not(.color-static),
+  h5:not(.color-static),
+  h6:not(.color-static),
+  p:not(.color-static) {
+    color: rgb(54, 57, 63);
+  }
+  h1.color-reverse,
+  h2.color-reverse,
+  h3.color-reverse,
+  h4.color-reverse,
+  h5.color-reverse,
+  h6.color-reverse,
+  p.color-reverse {
+    color: rgb(213, 214, 215);
+  }
+
+  /* Responsive Styling - Color Changes */
+  .btn-responsive, .badge-responsive {
+    color: rgb(255, 255, 255);
+    background-color: rgb(51, 58, 64);
+    border-color: rgb(51, 58, 64);
+  }
+  .btn-responsive:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(35, 39, 43);
+    border-color: rgb(29, 33, 36);
+  }
+  .btn-responsive.color-reverse, .badge-responsive.color-reverse {
+    color: rgb(33 37 41);
+    background-color: rgb(248 249 250);
+    border-color: rgb(248 249 250);
+  }
+  .btn-responsive.color-reverse:hover {
+    color: rgb(33 37 41);
+    background-color: rgb(226 230 234);
+    border-color: rgb(217 224 229);
+  }
+}

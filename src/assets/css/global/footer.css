@@ -1,0 +1,59 @@
+/* Default Styles */
+footer:not(.static) {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+footer.static {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    padding-top: 50px;
+}
+footer > .wrapper hr {
+    border-color: rgb(200, 200, 200);
+    font-size: 1rem;
+    width: 5rem;
+}
+footer > .wrapper p {
+    color: rgb(200, 200, 200);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+footer > .wrapper ul {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+    gap: 2rem;
+}
+
+footer > .wrapper ul li {
+    color: rgb(255, 255, 255);
+}
+footer > .wrapper ul li:nth-child(1) {
+    list-style: none;
+}
+footer > .wrapper ul li a {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+}
+footer > .wrapper ul li a:hover {
+    color: rgb(178, 178, 178);
+}
+
+/* Match System */
+@media (prefers-color-scheme: light) {
+    footer > .wrapper p {
+        color: rgb(33, 37, 41);
+    }
+    footer > .wrapper ul li a,
+    footer > .wrapper ul li {
+        color: rgb(77, 86, 94);
+    }
+    footer > .wrapper ul li a:hover {
+        color: rgb(35, 39, 43);
+    }
+}

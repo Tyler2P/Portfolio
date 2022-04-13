@@ -1,0 +1,30 @@
+/* Prevent symbols being highlighted */
+div[data-page=http-error] .fas {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Main wrapper */
+div[data-page=http-error].wrapper {
+  margin-top: 25vh;
+}
+
+/* Button styles */
+div[data-page=http-error] .btn:not(:first-child) {
+  margin-left: 10px;
+}
+
+/* General classes */
+div[data-page=http-error] .round {
+  border-radius: 50% !important;
+}
+div[data-page=http-error] .shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+div[data-page=http-error] .cursor-pointer {
+  cursor: pointer !important;
+}

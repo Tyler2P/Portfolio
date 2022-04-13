@@ -1,0 +1,48 @@
+/* Global Styles */
+div.root-page > *:first-child {
+  margin-top: 1rem;
+}
+div.page[data-page=projects] > div.projects-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, 25rem);
+  grid-template-rows: 26rem;
+  grid-auto-rows: 2fr;
+  padding: 2rem;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Change gap between cards once cards start wrapping to a new line */
+@media (max-width: 1360px) {
+  div.page[data-page=projects] > div.projects-grid {
+    gap: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  div.page[data-page=projects] > div.projects-grid {
+    padding: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+  }
+}
+@media (max-width: 460px) {
+  div.page[data-page=projects] > div.projects-grid {
+    padding: 0;
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 440px) {
+  div.page[data-page=projects] > div.projects-grid {
+    grid-template-columns: repeat(auto-fit, 22.5rem);
+    padding: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  div.page[data-page=projects] > div.projects-grid {
+    padding: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

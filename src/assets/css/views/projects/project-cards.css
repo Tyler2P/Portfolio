@@ -1,0 +1,150 @@
+div.page[data-page=projects] > div.projects-grid > div.project {
+  background-color: rgb(208, 209, 210);
+  padding: 1rem;
+  height: 100%;
+  min-height: 26rem;
+}
+/* Add a shadow but not to overlap other elements on the page */
+div.page[data-page=projects] > div.projects-grid > div.project::before {
+  box-shadow:  20px 20px 60px #2e3036, -20px -20px 60px #3e4248;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+/* Project Card > Project Image */
+div.page[data-page=projects] > div.projects-grid > div.project .project-image-wrapper {
+  height: 10rem;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image {
+  position: relative;
+  overflow: hidden;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image.project-image-placeholder {
+  background-image: url(../../../../../public/images/placeholder_dark.webp);
+}
+/* Project Image - Display corner borders */
+div.page[data-page=projects] > div.projects-grid > div.project .project-image {
+  position: relative;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image::before,
+div.page[data-page=projects] > div.projects-grid > div.project .project-image::after {
+  content: " ";
+  position: absolute;
+  border-color: black;
+  border-style: solid;
+  width: 10px;
+  height: 10px;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image::after {
+  top: 0;
+  right: 0;
+  border-width: 1px 1px 0 0;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image > :first-child::before {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-image > :first-child::after {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 1px 1px;
+}
+/* Project Card > Project Title */
+div.page[data-page=projects] > div.projects-grid > div.project .project-image > .project-image-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .7);
+  bottom: 0;
+  width: 100%;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  padding-right: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/* Project Card > Card Body */
+div.page[data-page=projects] > div.projects-grid > div.project > .project-body > p {
+  color: rgb(54, 57, 63);
+  font-size: 20px;
+}
+div.page[data-page=projects] > div.projects-grid > div.project.card-small > .project-body > p {
+  margin-top: 2rem;
+}
+div.page[data-page=projects] > div.projects-grid > div.project.card-medium > .project-body > p {
+  margin-top: 1rem;
+}
+div.page[data-page=projects] > div.projects-grid > div.project.card-large > .project-body > p {
+  margin-top: .75rem;
+}
+
+/* Project Card > Tags */
+div.page[data-page=projects] > div.projects-grid > div.project .project-tags {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  bottom: 5rem;
+  gap: .5rem;
+  margin-bottom: 10px;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .project-tags > span {
+  padding: 0.25rem 0.3rem;
+}
+
+/* Project Card > Links */
+div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  bottom: 2rem;
+  gap: 10px;
+  margin-top: 10px;
+}
+div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links > a > .children-wrapper,
+div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links > div[role=button] > .children-wrapper {
+  margin-right: 10px;
+}
+
+@media (prefers-color-scheme: light) {
+  div.page[data-page=projects] > div.projects-grid > div.project::before {
+    box-shadow:  20px 20px 60px #b5b6b7, -20px -20px 60px #f5f6f7;
+  }
+  div.page[data-page=projects] > div.projects-grid > div.project .project-image.project-image-placeholder {
+    background-image: url(../../../../../public/images/placeholder_light.webp);
+  }
+  div.page[data-page=projects] > div.projects-grid > div.project .project-image > .project-image-overlay {
+    background-color: rgba(0, 0, 0, .3);
+  }
+  div.page[data-page=projects] > div.projects-grid > div.project .project-image > .project-image-overlay > h3 {
+    color: rgb(213, 214, 215);
+  }
+}
+
+/* Shrink the card sizes for smaller screens */
+@media (max-width: 440px) {
+  div.page[data-page=projects] > div.projects-grid > div.project {
+    padding: .75rem;
+  }
+  div.page[data-page=projects] > div.projects-grid > div.project .project-body {
+    padding: .25rem;
+  }
+  div.page[data-page=projects] > div.projects-grid > div.project .project-image-wrapper {
+    max-width: 22rem;
+  }
+}
