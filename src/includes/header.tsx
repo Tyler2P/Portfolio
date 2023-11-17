@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCode } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import "../../src/assets/css/global/header.css";
 import "../../src/assets/css/global/utils.css";
+
+interface HeaderAttributes {
+  page: () => string;
+}
 
 const cache = {
   "hamburger-menu": {
@@ -74,15 +78,55 @@ function linkClick(): void {
 
 /**
  * Get the header JSX markup
+ * @param page The current page
  * @returns The JSX for the page
  */
-function Header(): JSX.Element {
+function Header(attributes: HeaderAttributes): JSX.Element {
   useEffect(() => {
     // Add an event listener to the window to detect when the window is resized
     window.addEventListener("resize", windowResized, false);
     // Ensure the header is optimized for the current window size
     windowResized();
   });
+  const elemRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let page = attributes.page();
+
+      // Ensure the elemRef is correct
+      if (!elemRef?.current) return;
+      // Ensure the current page is the projects page
+      if (page === "projects") {
+        // Ensure the page is set to dark mode
+        if (window.matchMedia("(prefers-color-scheme: light)").matches)
+          return elemRef.current.classList.remove("scrolled");
+
+        if (window.scrollY > 125) {
+          elemRef.current.classList.add("scrolled");
+        } else {
+          elemRef.current.classList.remove("scrolled");
+        }
+      } else if (page === "home") {
+        // Ensure the page is set to dark mode
+        if (window.matchMedia("(prefers-color-scheme: light)").matches)
+          return elemRef.current.classList.remove("scrolled");
+
+        if (window.scrollY < 926) {
+          elemRef.current.classList.add("scrolled");
+        } else {
+          elemRef.current.classList.remove("scrolled");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup function to remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
   return (
     <>
       <noscript>
@@ -91,9 +135,9 @@ function Header(): JSX.Element {
         </div>
       </noscript>
       <header>
-        <div className="wrapper">
+        <div className="wrapper" ref={elemRef}>
           <section className="branding">
-            <h1>Tyler Pearson</h1>
+            <h1 aria-label="Tyler Pearson" translate="no">Tyler Pearson</h1>
           </section>
           <section className="navigation-menu">
             <button className="hamburger" onClick={hamburgerClick}>
