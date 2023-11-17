@@ -1,10 +1,16 @@
-div.page[data-page=projects] > div.projects-grid > div.project {
+div.page[data-page=projects] > div.projects-grid > div.project,
+div.page[data-page=contributions] > div.projects-grid > div.project {
   background-color: rgb(208, 209, 210);
   padding: 1rem;
   height: 100%;
   min-height: 26rem;
 }
+div.page[data-page=projects] > div.projects-grid > div.project.archived,
+div.page[data-page=contributions] > div.projects-grid > div.project.archived {
+  background-color: rgba(197, 197, 197, .6);
+}
 /* Add a shadow but not to overlap other elements on the page */
+div.page[data-page=contributions] > div.projects-grid > div.project::before,
 div.page[data-page=projects] > div.projects-grid > div.project::before {
   box-shadow:  20px 20px 60px #2e3036, -20px -20px 60px #3e4248;
   content: "";
@@ -17,9 +23,11 @@ div.page[data-page=projects] > div.projects-grid > div.project::before {
 }
 
 /* Project Card > Project Image */
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image-wrapper,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image-wrapper {
   height: 10rem;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image {
   position: relative;
   overflow: hidden;
@@ -29,14 +37,18 @@ div.page[data-page=projects] > div.projects-grid > div.project .project-image {
   width: 100%;
   height: 100%;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image.project-image-placeholder,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image.project-image-placeholder {
   background-image: url(../../../../../public/images/placeholder_dark.webp);
 }
 /* Project Image - Display corner borders */
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image {
   position: relative;
 }
-div.page[data-page=projects] > div.projects-grid > div.project .project-image::before,
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image::before,
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image::after,
+  div.page[data-page=projects] > div.projects-grid > div.project .project-image::before,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image::after {
   content: " ";
   position: absolute;
@@ -45,27 +57,32 @@ div.page[data-page=projects] > div.projects-grid > div.project .project-image::a
   width: 10px;
   height: 10px;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image::before,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image::before {
   top: 0;
   left: 0;
   border-width: 1px 0 0 1px;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image::after,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image::after {
   top: 0;
   right: 0;
   border-width: 1px 1px 0 0;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image > :first-child::before,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image > :first-child::before {
   bottom: 0;
   right: 0;
   border-width: 0 1px 1px 0;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image > :first-child::after,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image > :first-child::after {
   bottom: 0;
   left: 0;
   border-width: 0 0 1px 1px;
 }
 /* Project Card > Project Title */
+div.page[data-page=contributions] > div.projects-grid > div.project .project-image > .project-image-overlay,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image > .project-image-overlay {
   position: absolute;
   background-color: rgba(0, 0, 0, .7);
@@ -78,72 +95,138 @@ div.page[data-page=projects] > div.projects-grid > div.project .project-image > 
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project.large-title .project-image > .project-image-overlay > h3,
+div.page[data-page=projects] > div.projects-grid > div.project.large-title .project-image > .project-image-overlay > h3 {
+  font-size: 1.55rem;
+}
 /* Project Card > Card Body */
+div.page[data-page=contributions] > div.projects-grid > div.project > .project-body,
+div.page[data-page=projects] > div.projects-grid > div.project > .project-body {
+  min-height: unset;
+  padding-bottom: 0;
+}
+div.page[data-page=contributions] > div.projects-grid > div.project > .project-body > p,
 div.page[data-page=projects] > div.projects-grid > div.project > .project-body > p {
   color: rgb(54, 57, 63);
   font-size: 20px;
+  margin: 0;
 }
-div.page[data-page=projects] > div.projects-grid > div.project.card-small > .project-body > p {
-  margin-top: 2rem;
+div.page[data-page=contributions] > div.projects-grid > div.project.card-medium > .project-body > p {
+  min-height: 7rem;
 }
 div.page[data-page=projects] > div.projects-grid > div.project.card-medium > .project-body > p {
-  margin-top: 1rem;
+  min-height: 5rem;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project.card-large > .project-body > p,
 div.page[data-page=projects] > div.projects-grid > div.project.card-large > .project-body > p {
   margin-top: .75rem;
 }
 
 /* Project Card > Tags */
+div.page[data-page=contributions] > div.projects-grid > div.project .project-tags,
 div.page[data-page=projects] > div.projects-grid > div.project .project-tags {
-  position: absolute;
   display: flex;
   flex-direction: row;
-  bottom: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
   gap: .5rem;
-  margin-bottom: 10px;
 }
+div.page[data-page=contributions] > div.projects-grid > div.project .project-tags > span,
 div.page[data-page=projects] > div.projects-grid > div.project .project-tags > span {
   padding: 0.25rem 0.3rem;
 }
 
 /* Project Card > Links */
+div.page[data-page=contributions] > div.projects-grid > div.project > .project-body .project-links,
 div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links {
-  position: absolute;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  bottom: 2rem;
+  justify-content: left;
   gap: 10px;
-  margin-top: 10px;
 }
-div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links > a > .children-wrapper,
+div.page[data-page=contributions] > div.projects-grid > div.project > .project-body .project-links button > .children-wrapper,
+div.page[data-page=contributions] > div.projects-grid > div.project > .project-body .project-links > div[role=button] > .children-wrapper,
+div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links button > .children-wrapper,
 div.page[data-page=projects] > div.projects-grid > div.project > .project-body .project-links > div[role=button] > .children-wrapper {
   margin-right: 10px;
 }
 
+/* Project Card > Stats */
+div.page[data-page=projects] > div.projects-grid > div.project .stats-wrapper,
+div.page[data-page=contributions] > div.projects-grid > div.project .stats-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: .5rem;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .stats-wrapper > div,
+div.page[data-page=contributions] > div.projects-grid > div.project .stats-wrapper > div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: .5rem;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .stats-wrapper > div,
+div.page[data-page=contributions] > div.projects-grid > div.project .stats-wrapper > div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: .5rem;
+}
+div.page[data-page=projects] > div.projects-grid > div.project .stats-wrapper > div.stars > svg,
+div.page[data-page=contributions] > div.projects-grid > div.project .stats-wrapper > div.stars > svg {
+  color: rgb(255, 255, 0);
+}
+div.page[data-page=projects] > div.projects-grid > div.project .stats-wrapper > div.watchers > svg,
+div.page[data-page=contributions] > div.projects-grid > div.project .stats-wrapper > div.watchers > svg {
+  color: rgb(0, 161, 255);
+}
+div.page[data-page=projects] > div.projects-grid > div.project .stats-wrapper > div.forks > svg,
+div.page[data-page=contributions] > div.projects-grid > div.project .stats-wrapper > div.forks > svg {
+  color: rgb(134, 103, 223);
+}
+
+/* Project Card > Date */
+div.page[data-page=projects] > div.projects-grid > div.project .date,
+div.page[data-page=contributions] > div.projects-grid > div.project .date {
+  color: rgb(6, 6, 7);
+  margin-bottom: 0;
+  margin-top: .9rem;
+}
+
 @media (prefers-color-scheme: light) {
+  div.page[data-page=contributions] > div.projects-grid > div.project::before,
   div.page[data-page=projects] > div.projects-grid > div.project::before {
-    box-shadow:  20px 20px 60px #b5b6b7, -20px -20px 60px #f5f6f7;
+    box-shadow:  20px 20px 60px #afafb0, -20px -20px 60px #fbfdfe;
   }
+  div.page[data-page=contributions] > div.projects-grid > div.project .project-image.project-image-placeholder,
   div.page[data-page=projects] > div.projects-grid > div.project .project-image.project-image-placeholder {
     background-image: url(../../../../../public/images/placeholder_light.webp);
   }
+  div.page[data-page=contributions] > div.projects-grid > div.project .project-image > .project-image-overlay,
   div.page[data-page=projects] > div.projects-grid > div.project .project-image > .project-image-overlay {
     background-color: rgba(0, 0, 0, .3);
   }
+  div.page[data-page=contributions] > div.projects-grid > div.project .project-image > .project-image-overlay > h3,
   div.page[data-page=projects] > div.projects-grid > div.project .project-image > .project-image-overlay > h3 {
-    color: rgb(213, 214, 215);
+    color: rgb(235, 235, 235);
+  }
+  div.page[data-page=projects] > div.projects-grid > div.project .date,
+  div.page[data-page=contributions] > div.projects-grid > div.project .date {
+    color: rgb(46, 46, 46);
   }
 }
 
 /* Shrink the card sizes for smaller screens */
 @media (max-width: 440px) {
+  div.page[data-page=contributions] > div.projects-grid > div.project,
   div.page[data-page=projects] > div.projects-grid > div.project {
     padding: .75rem;
   }
+  div.page[data-page=contributions] > div.projects-grid > div.project .project-body,
   div.page[data-page=projects] > div.projects-grid > div.project .project-body {
     padding: .25rem;
   }
+  div.page[data-page=contributions] > div.projects-grid > div.project .project-image-wrapper,
   div.page[data-page=projects] > div.projects-grid > div.project .project-image-wrapper {
     max-width: 22rem;
   }

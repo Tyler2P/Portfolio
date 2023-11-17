@@ -1,4 +1,4 @@
-// Dependancies
+// Dependencies
 import React from "react";
 import { Link } from "react-router-dom";
 // Stylesheets
@@ -18,7 +18,7 @@ export function Error404() {
           <p className="lead">The page you're looking for doesn't exist</p>
           <Link to="/" className="btn btn-responsive">Return Home</Link>
       </div>
-      <Footer includeSeperation="true" />
+      <Footer includeSeparation="true" />
     </>
   )
 }

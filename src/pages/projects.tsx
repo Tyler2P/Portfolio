@@ -1,19 +1,26 @@
+import React, { useEffect, useState } from "react";
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEye, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
-import React from "react";
+import { faEye, faInfoCircle, faNetworkWired, faStar } from "@fortawesome/free-solid-svg-icons"
 // Stylesheets
 import "../../src/assets/css/views/projects/main.css";
 import "../../src/assets/css/views/projects/project-cards.css";
 // Components
 import Footer from "../includes/footer";
+import { ArchivedProjectModal } from "includes/modals";
 
 type InformationButtonState = "enabled" | "disabled";
 type TagOptions = "AWS" | "CSS" | "Docker" | "Express" | "Git" | "HTML" | "JavaScript" | "MongoDB" | "Mongoose" | "Node.js" | "React" | "TypeScript" | "Webpack";
 type FrameworkOptions = "Bootstrap" | "jQuery";
-type LibaryOptions = "Google Fonts" | "Font Awesome";
-
+type LibraryOptions = "Google Fonts" | "Font Awesome";
+type StatsDataType = {
+  [key: string]: {
+    watchers: number;
+    stars: number;
+    forks: number;
+  };
+};
 interface LinkOptions {
   text: string;
   url: string;
@@ -24,15 +31,33 @@ interface LinkOptions {
 interface ProjectObj {
   name: string;
   description: string;
+  archived?: boolean;
+  date?: string;
   links?: LinkOptions[];
   image: string;
   tags: TagOptions[];
   frameworks?: FrameworkOptions[];
-  libaries?: LibaryOptions[];
+  libraries?: LibraryOptions[];
+  githubApiLink?: string;
   options?: {
     small?: boolean;
     large? : boolean;
     moreInformation?: InformationButtonState;
+    largeTitle?: boolean;
+  }
+}
+interface ContributionObj {
+  name: string;
+  description: string;
+  date?: string;
+  links?: LinkOptions[];
+  image?: string;
+  githubApiLink?: string;
+  options?: {
+    small?: boolean;
+    large? : boolean;
+    moreInformation?: InformationButtonState;
+    largeTitle?: boolean;
   }
 }
 
@@ -40,49 +65,119 @@ const projects: ProjectObj[] = [
   {
     name: "Portfolio",
     description: "My portfolio",
+    date: "2023-11-15",
     links: [{
       text: "Github Repo",
-      url: "",
+      url: "https://github.com/Tyler2P/Portfolio",
       target: "_blank",
       children: <FontAwesomeIcon icon={faGithub} />
     }],
     image: "/favicon192.png",
     tags: ["CSS", "React", "TypeScript"],
     frameworks: ["Bootstrap"],
-    libaries: ["Font Awesome"],
-    options: {
-      small: true
-    }
+    libraries: ["Font Awesome"]
   }, {
     name: "Beauty by Rachel",
     description: "An appointment booking app for a small business",
+    date: "2021-03-27",
     links: [{
       text: "View Project",
-      url: "https://beauty-by-rachel.co.uk",
+      url: "https://web.archive.org/web/20220311105922/https://beauty-by-rachel.co.uk/home",
       target: "_blank",
       children: <FontAwesomeIcon icon={faEye} />
     }],
-    image: "https://beauty-by-rachel.co.uk/favicon.ico",
+    image: "/images/beautybyrachel-icon.webp",
     tags: ["CSS", "Express", "HTML", "JavaScript"],
     frameworks: ["Bootstrap", "jQuery"],
-    libaries: ["Font Awesome", "Google Fonts"]
+    libraries: ["Font Awesome", "Google Fonts"],
+    archived: true
   }, {
-    name: "Project 1",
-    description: "This is a description for project 1",
-    image: "",
-    tags: ["CSS", "HTML", "JavaScript"],
-    options: {
-      large: true
-    }
+    name: "Billybobbeep",
+    description: "A Discord bot for server owners to keep track of their server",
+    date: "2020-06-06",
+    githubApiLink: "https://api.github.com/repos/Billybobbeep/Billybobbeep",
+    links: [{
+      text: "Github Repo",
+      url: "https://github.com/Billybobbeep/Billybobbeep",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faGithub} />
+    }],
+    image: "/images/billybobbeep-icon.webp",
+    tags: ["JavaScript", "TypeScript"]
+  }, {
+    name: "Billybobbeep Dashboard",
+    description: "A dashboard to change the settings and preferences of Billybobbeep",
+    links: [{
+      text: "Github Repo",
+      url: "https://github.com/Billybobbeep/Dashboard",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faGithub} />
+    }, {
+      text: "View Project",
+      url: "https:/billybobbeep.com",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faEye} />
+    }],
+    image: "/images/billybobbeep-icon.webp",
+    tags: ["CSS", "Express", "HTML", "JavaScript", "MongoDB"],
+    frameworks: ["Bootstrap"],
+    libraries: ["Font Awesome", "Google Fonts"]
   }
 ];
 
-const contributions: object[] = [];
+const contributions: ContributionObj[] = [
+  {
+    name: "Microsoft Reward Chrome Ext",
+    description: "A Chrome extension for Microsoft Rewards search, for accounts with two-factor authentication.",
+    image: "/images/microsoft-rewards.svg",
+    githubApiLink: "https://api.github.com/repos/tmxkn1/Microsoft-Reward-Chrome-Ext",
+    links: [{
+      text: "Github Repo",
+      url: "https://github.com/tmxkn1/Microsoft-Reward-Chrome-Ext",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faGithub} />
+    }],
+    options: {
+      largeTitle: true
+    }
+  }, {
+    name: "Discord OwO Bot",
+    description: "A Discord bot that will keep track of your OwO",
+    image: "/images/discord-owo-bot-icon.webp",
+    githubApiLink: "https://api.github.com/repos/ChristopherBThai/Discord-OwO-Bot",
+    links: [{
+      text: "Github Repo",
+      url: "https://github.com/ChristopherBThai/Discord-OwO-Bot",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faGithub} />
+    }]
+  }, {
+    name: "ClassCharts API JS",
+    description: "A javascript wrapper for getting information from the ClassCharts API",
+    githubApiLink: "https://api.github.com/repos/classchartsapi/classcharts-api-js",
+    links: [{
+      text: "Github Repo",
+      url: "https://github.com/classchartsapi/classcharts-api-js",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faGithub} />
+    }]
+  }, {
+    name: "Speed Reader",
+    description: "A chrome extension to allow users to quickly read long paragraphs",
+    githubApiLink: "https://api.github.com/repos/cheekysim/speed-reader",
+    links: [{
+      text: "Github Repo",
+      url: "https://github.com/cheekysim/speed-reader",
+      target: "_blank",
+      children: <FontAwesomeIcon icon={faGithub} />
+    }]
+  }
+];
 
 function ProjectImageOverlay(props: { text: string }) {
   return (
     <div className="project-image-overlay">
-        <h3 className="no-select">{props.text}</h3>
+      <h3>{props.text}</h3>
     </div>
   );
 }
@@ -91,60 +186,87 @@ function ProjectImageOverlay(props: { text: string }) {
  * @returns The projects grid
  */
 function ProjectsGrid(): JSX.Element {
+  const [isArchivedModalOpen, setArchivedModalOpen] = useState<boolean>(false);
+  const [archivedModalLink, setArchivedModalLink] = useState<string>("");
+  const [archivedModalName, setArchivedModalName] = useState<string>("");
+
+  const displayArchivedModal = (name: string, link: string | null) => {
+    setArchivedModalName(name);
+    if (link)
+      setArchivedModalLink(link);
+    setArchivedModalOpen(true);
+  }
+
   if (projects.length > 0) {
     return (
-      <div className="projects-grid">
-        {projects.map((project: ProjectObj, index: number) => (
-          <div className={
-            [
-              "project",
-              " card",
-              `${project.options?.small ? " card-small" : ""}`,
-              `${project.options?.large ? " card-large" : ""}`,
-              `${!project.options?.small && !project.options?.large ? " card-medium" : ""}`
-            ].join("")} key={index}
-          >
-            <div className="project-image-wrapper card-img-top">
-              {
-                project.image ? (
-                  <div
-                    className="project-image"
-                    style={{ backgroundImage: `url(${project.image})` }}
-                  >
-                    <ProjectImageOverlay text={project.name} />
-                  </div>
-                ) : (
-                  <div className="project-image project-image-placeholder">
-                    <ProjectImageOverlay text={project.name} />
-                  </div>
-                )
-              }
-            </div>
-            <div className="project-body card-body">
-              <p className="card-text color-static">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag: string, index: number) => (
-                  <span className="badge badge-secondary color-reverse no-select" key={index}>{tag}</span>
-                ))}
+      <>
+        <div className="projects-grid">
+          {projects.sort((a, b) => (a.archived === b.archived)? 0 : a.archived? 1 : -1).sort((a: ProjectObj, b: ProjectObj) => Number(a.archived) - Number(b.archived)).map((project: ProjectObj, index: number) => (
+            <div className={
+              [
+                "project",
+                "card",
+                `${project.options?.small ? "card-small" : ""}`,
+                `${project.options?.large ? "card-large" : ""}`,
+                `${!project.options?.small && !project.options?.large ? "card-medium" : ""}`,
+                `${project.options?.largeTitle ? "large-title" : ""}`,
+                `${project.archived ? "archived" : ""}`
+              ].join(" ").trim()} key={index}
+            >
+              <div className="project-image-wrapper card-img-top">
+                {
+                  project.image ? (
+                    <div
+                      className="project-image"
+                      style={{ backgroundImage: `url(${project.image})` }}
+                    >
+                      <ProjectImageOverlay text={project.name} />
+                    </div>
+                  ) : (
+                    <div className="project-image project-image-placeholder">
+                      <ProjectImageOverlay text={project.name} />
+                    </div>
+                  )
+                }
               </div>
-              <div className="project-links">
-                {/* <div role="button" className="btn btn-responsive color-reverse">
-                  <span className="children-wrapper">
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                  </span>
-                  <span>More Information</span>
-                </div> */}
-                {project.links?.map((link: LinkOptions, index: number) => (
-                  <a href={link.url} target={link.target} className="btn btn-responsive color-reverse" key={index}>
-                    {link.children ? <span className="children-wrapper">{link.children}</span> : null}
-                    <span>{link.text}</span>
-                  </a>
-                ))}
+              <div className="project-body card-body">
+                <p className="card-text color-static">{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.sort().map((tag: string, index: number) => (
+                    <span className="badge text-bg-secondary color-reverse" key={index}>{tag}</span>
+                  ))}
+                  {project.archived === true && (<span className="badge text-bg-danger color-reverse" key={project.tags.length}>Archived</span>)}
+                </div>
+                <div className="project-links">
+                  {/* <div role="button" className="btn btn-responsive color-reverse">
+                    <span className="children-wrapper">
+                      <FontAwesomeIcon icon={faInfoCircle} />
+                    </span>
+                    <span>More Information</span>
+                  </div> */}
+                  {project.links?.map((link: LinkOptions, index: number) => (
+                    project.archived === true ? (
+                      <button className="btn btn-responsive color-reverse" onClick={() => displayArchivedModal(project.name, link.url)} key={index}>
+                        {link.children && <span className="children-wrapper">{link.children}</span>}
+                        <span>{link.text}</span>
+                      </button>
+                    ) : (
+                      <a href={link.url} target={link.target} key={index}>
+                        <button className="btn btn-responsive color-reverse">
+                          {link.children && <span className="children-wrapper">{link.children}</span>}
+                          <span>{link.text}</span>
+                        </button>
+                      </a>
+                    )
+                  ))}
+                </div>
               </div>
+              {project.date && <p className="date text-center">{project.date}</p>}
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+        <ArchivedProjectModal isOpen={isArchivedModalOpen} onClose={() => setArchivedModalOpen(false)} link={archivedModalLink} projectName={archivedModalName} />
+      </>
     )
   } else {
     return (
@@ -161,12 +283,106 @@ function ProjectsGrid(): JSX.Element {
  * @returns The contributions grid
  */
 function ContributionsGrid(): JSX.Element {
-  return (
-    <div className="error-modal text-center">
-      <h2 className="display-5">No contributions</h2>
-      <p className="lead">Nothing to be displayed</p>
-    </div>
-  )
+  const [statsData, setStatsData] = useState<StatsDataType>({});
+
+  useEffect(() => {
+    contributions.forEach(contribution => {
+      let link = contribution.githubApiLink;
+
+      if (!link || !link.includes("api.github.com/")) return;
+
+      fetch(link)
+        .then(response => {
+          if (response.status !== 200) return;
+          return response.json();
+        })
+        .then(data => {
+          const { stargazers_count, subscribers_count, forks } = data;
+          setStatsData(prevData => ({
+            ...prevData,
+            [contribution.name]: { watchers: subscribers_count, stars: stargazers_count, forks }
+          }));
+        })
+        .catch(error => console.error(error));
+    });
+  }, [contributions]);
+
+  if (contributions.length > 0) {
+    return (
+      <div className="projects-grid">
+        {contributions.map((contribution: ContributionObj, index: number) => (
+          <div className={
+            [
+              "project",
+              "card",
+              `${contribution.options?.small ? "card-small" : ""}`,
+              `${contribution.options?.large ? "card-large" : ""}`,
+              `${!contribution.options?.small && !contribution.options?.large ? "card-medium" : ""}`,
+              `${contribution.options?.largeTitle ? "large-title" : ""}`
+            ].join(" ")} key={index}
+          >
+            <div className="project-image-wrapper card-img-top">
+              {
+                contribution.image ? (
+                  <div
+                    className="project-image"
+                    style={{ backgroundImage: `url(${contribution.image})` }}
+                  >
+                    <ProjectImageOverlay text={contribution.name} />
+                  </div>
+                ) : (
+                  <div className="project-image project-image-placeholder">
+                    <ProjectImageOverlay text={contribution.name} />
+                  </div>
+                )
+              }
+            </div>
+            <div className="stats-wrapper">
+              <div className="stars">
+                <FontAwesomeIcon icon={faStar} />
+                <span className="data">{statsData[contribution.name]?.stars || 0}</span>
+              </div>
+              <div className="watchers">
+                <FontAwesomeIcon icon={faEye} />
+                <span className="data">{statsData[contribution.name]?.watchers || 0}</span>
+              </div>
+              <div className="forks">
+              <FontAwesomeIcon icon={faNetworkWired} />
+              <span className="data">{statsData[contribution.name]?.forks || 0}</span>
+              </div>
+            </div>
+            <div className="project-body card-body">
+              <p className="card-text color-static">{contribution.description}</p>
+              <div className="project-links">
+                {/* <div role="button" className="btn btn-responsive color-reverse">
+                  <span className="children-wrapper">
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                  </span>
+                  <span>More Information</span>
+                </div> */}
+                {contribution.links?.map((link: LinkOptions, index: number) => (
+                  <a href={link.url} target={link.target} key={index}>
+                    <button className="btn btn-responsive color-reverse">
+                      {link.children ? <span className="children-wrapper">{link.children}</span> : null}
+                      <span>{link.text}</span>
+                    </button>
+                  </a>
+                ))}
+              </div>
+            </div>
+            {contribution.date && <p className="date text-center">{contribution.date}</p>}
+          </div>
+        ))}
+      </div>
+    )
+  } else {
+    return (
+      <div className="error-modal text-center">
+        <h2 className="display-5">No contributions</h2>
+        <p className="lead">Nothing to be displayed</p>
+      </div>
+    )
+  }
 }
 
 /**
@@ -188,7 +404,7 @@ function ProjectPage(): JSX.Element {
       <div className="page" data-page="contributions">
         <ContributionsGrid />
       </div>
-      <Footer includeSeperation="true" />
+      <Footer includeSeparation="true" />
     </>
   )
 }

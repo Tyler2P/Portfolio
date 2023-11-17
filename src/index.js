@@ -9,6 +9,15 @@ import ProjectPage from "./pages/projects";
 import { Error404 } from "./pages/http-errors";
 // Global Imports
 import Header from "./includes/header";
+// Stylesheets
+import "./assets/css/views/footer.css";
+
+const pageList = ["home", "projects"];
+let page = "home";
+
+function getPage() {
+  return page;
+}
 
 /**
  * Get the routes for the application
@@ -17,10 +26,8 @@ import Header from "./includes/header";
 function Navigation() {
   const location = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
-  const [transitionStage, setTransistionStage] = useState("fadeIn");
+  const [transitionStage, setTransitionStage] = useState("fadeIn");
   const pathnameArray = (displayLocation.pathname).split("/");
-  const pageList = ["home", "projects"];
-  let page = "";
 
   if (displayLocation.pathname === "/") {
     page = "home";
@@ -36,10 +43,8 @@ function Navigation() {
 
   // Update the displayed content when the location changes
   useEffect(() => {
-    if (location !== displayLocation) setTransistionStage("fadeOut");
+    if (location !== displayLocation) setTransitionStage("fadeOut");
   }, [location, displayLocation]);
-
-  console.log(displayLocation.pathname);
 
   // Return the routes for the application
   return (
@@ -48,13 +53,14 @@ function Navigation() {
         data-page-name={page}
         onAnimationEnd={(() => {
           if (transitionStage === "fadeOut") {
-            setTransistionStage("fadeIn");
+            setTransitionStage("fadeIn");
             setDisplayLocation(location);
           }
         })}
       >
         <Routes location={displayLocation}>
           <Route path="/" key="/" element={<HomePage />} />
+          <Route path="/home" key="/" element={<HomePage />} />
           <Route path="/projects" key="/projects" element={<ProjectPage />} />
           <Route path="/projects" key="/projects/:project" element={<ProjectPage />} />
           <Route path="*" element={<Error404 />} />
@@ -67,7 +73,7 @@ function Navigation() {
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<Header />
+			<Header page={getPage} />
 			<Navigation />
 		</BrowserRouter>
 	</React.StrictMode>,

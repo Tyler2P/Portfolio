@@ -1,0 +1,101 @@
+/* Wrapper */
+section#skills > .skill-card-wrapper {
+  display: grid;
+  justify-content: center;
+  box-sizing: inherit;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, 30rem);
+  padding: 2rem;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  margin: 0;
+}
+/* The Card */
+section#skills > .skill-card-wrapper .skill-card {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: .5rem;
+}
+section#skills > .skill-card-wrapper .skill-card.special {
+  background-color: rgb(255, 244, 112);
+}
+section#skills > .skill-card-wrapper .skill-card:hover {
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: light) {
+  section#skills > .skill-card-wrapper .skill-card {
+    background-color: rgb(43, 43, 43);
+  }
+  section#skills > .skill-card-wrapper .skill-card.special h4,
+  section#skills > .skill-card-wrapper .skill-card.special p {
+    color: rgb(43, 43, 43);
+  }
+}
+
+/* Card Header */
+section#skills > .skill-card-wrapper .skill-card > .card-header {
+  background-color: transparent;
+  border: none;
+  padding-top: 0;
+  width: 100%;
+}
+section#skills > .skill-card-wrapper .skill-card > .card-header > .wrapper {
+  display: flex;
+  flex-direction: row;
+}
+section#skills > .skill-card-wrapper .skill-card > .card-header::after {
+  content: "";
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(30, 30, 30, .5);
+  border-bottom-width: 1px;
+  width: 30%;
+}
+section#skills > .skill-card-wrapper .skill-card > .card-header h4 {
+  transform: translateY(18%);
+  font-size: 1.75rem;
+}
+section#skills > .skill-card-wrapper .skill-card > .card-header .skill-icon {
+  color: rgb(42, 165, 97);
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+/* Card Body */
+section#skills > .skill-card-wrapper .skill-card > p {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+@media (max-width: 550px) {
+  section#skills > .skill-card-wrapper {
+    grid-template-columns: repeat(auto-fill, 25rem);
+  }
+}
+@media (max-width: 470px) {
+  section#skills h3 {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 420px) {
+  section#skills > .skill-card-wrapper {
+    grid-template-columns: repeat(auto-fill, 95%);
+    margin-top: 2rem;
+    padding: 0;
+  }
+}
