@@ -28,6 +28,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "npm-run-all build start",
+    "prod": "npm run build && serve -s build -l 8686",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

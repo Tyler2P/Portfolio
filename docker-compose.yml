@@ -1,0 +1,7 @@
+version: "3"
+services:
+  portfolio:
+    container_name: portfolio
+    pull_policy: build
+    build: .
+    restart: unless-stopped
