@@ -31,7 +31,7 @@ section#skills > .skill-card-wrapper .skill-card.special {
   background-color: rgb(255, 244, 112);
 }
 section#skills > .skill-card-wrapper .skill-card:hover {
-  margin-bottom: 1rem;
+  transform: translateY(-1rem);
 }
 
 @media (prefers-color-scheme: light) {
