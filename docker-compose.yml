@@ -4,4 +4,6 @@ services:
     container_name: portfolio
     pull_policy: build
     build: .
+    ports:
+      - 8686:8686
     restart: unless-stopped
