@@ -140,7 +140,7 @@ function Header(attributes: HeaderAttributes): JSX.Element {
             <h1 aria-label="Tyler Pearson" translate="no">Tyler Pearson</h1>
           </section>
           <section className="navigation-menu">
-            <button className="hamburger" onClick={hamburgerClick}>
+            <button className="hamburger" onClick={hamburgerClick} aria-label="Main navigation menu" aria-expanded="false">
               <div></div>
               <div></div>
               <div></div>
@@ -161,10 +161,10 @@ function Header(attributes: HeaderAttributes): JSX.Element {
             </ul>
           </section>
           <section className="action-row">
-            <a href="https://github.com/Tyler2P" target="_blank" rel="noreferrer" className="button" data-linkto="github">
+            <a href="https://github.com/Tyler2P" aria-label="Link to my Github profile" target="_blank" rel="noreferrer" className="button" data-linkto="github">
               <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://stackoverflow.com/users/14267427/tyler2p" target="_blank" rel="noreferrer" className="button" data-linkto="stackoverflow">
+            <a href="https://stackoverflow.com/users/14267427/tyler2p" aria-label="Link to my Stack Overflow profile" target="_blank" rel="noreferrer" className="button" data-linkto="stackoverflow">
               <FontAwesomeIcon icon={faStackOverflow} />
             </a>
           </section>
