@@ -219,6 +219,14 @@ div.page[data-page=contributions] > div.projects-grid > div.project .date {
 }
 
 /* Shrink the card sizes for smaller screens */
+@media (max-width: 600px) {
+  div.page[data-page=projects] > div.projects-grid > div.project,
+  div.page[data-page=contributions] > div.projects-grid > div.project {
+    scroll-snap-align: center;
+    width: 23rem;
+    min-width: 23rem;
+  }
+}
 @media (max-width: 440px) {
   div.page[data-page=contributions] > div.projects-grid > div.project,
   div.page[data-page=projects] > div.projects-grid > div.project {

@@ -30,12 +30,14 @@ div.page[data-page=projects] > div.projects-grid {
   }
 }
 /* Mobile View */
-@media (max-width: 600px) {
+@media (max-width: 895px) {
   div.page[data-page=contributions] > div.projects-grid,
   div.page[data-page=projects] > div.projects-grid {
     display: flex;
     align-items: center;
-    overflow-y: auto;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     padding: 2rem;
     gap: 3rem;
     padding-top: 2.5rem;
@@ -62,33 +64,3 @@ div.page[data-page=projects] > div.projects-grid {
     background: rgb(113, 113, 113);
   }
 }
-/* @media (max-width: 500px) {
-  div.page[data-page=contributions] > div.projects-grid,
-  div.page[data-page=projects] > div.projects-grid {
-    padding: 0;
-    padding-top: 1rem;
-    padding-left: 1rem;
-  }
-}
-@media (max-width: 460px) {
-  div.page[data-page=contributions] > div.projects-grid,
-  div.page[data-page=projects] > div.projects-grid {
-    padding: 0;
-    padding-top: 1rem;
-  }
-}
-@media (max-width: 440px) {
-  div.page[data-page=contributions] > div.projects-grid,
-  div.page[data-page=projects] > div.projects-grid {
-    grid-template-columns: repeat(auto-fit, 22.5rem);
-    padding: 1rem;
-  }
-}
-@media (max-width: 400px) {
-  div.page[data-page=contributions] > div.projects-grid,
-  div.page[data-page=projects] > div.projects-grid {
-    padding: 0;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-} */
