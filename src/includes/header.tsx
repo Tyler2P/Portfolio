@@ -91,34 +91,6 @@ function Header(attributes: HeaderAttributes): JSX.Element {
   const elemRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      let page = attributes.page();
-
-      // Ensure the elemRef is correct
-      if (!elemRef?.current) return;
-      // Ensure the current page is the projects page
-      if (page === "projects") {
-        // Ensure the page is set to dark mode
-        if (window.matchMedia("(prefers-color-scheme: light)").matches)
-          return elemRef.current.classList.remove("scrolled");
-
-        if (window.scrollY > 125) {
-          elemRef.current.classList.add("scrolled");
-        } else {
-          elemRef.current.classList.remove("scrolled");
-        }
-      } else if (page === "home") {
-        // Ensure the page is set to dark mode
-        if (window.matchMedia("(prefers-color-scheme: light)").matches)
-          return elemRef.current.classList.remove("scrolled");
-
-        if (window.scrollY < 926) {
-          elemRef.current.classList.add("scrolled");
-        } else {
-          elemRef.current.classList.remove("scrolled");
-        }
-      }
-    }
 
     window.addEventListener("scroll", handleScroll);
 
@@ -174,4 +146,28 @@ function Header(attributes: HeaderAttributes): JSX.Element {
   )
 }
 
+    const handleScroll = () => {
+      let page = attributes.page();
+
+      // Ensure the elemRef is correct
+      if (!elemRef?.current) return;
+      // Ensure the current page is the projects page
+      if (page === "projects") {
+        // Ensure the page is set to dark mode
+        if (window.matchMedia("(prefers-color-scheme: light)").matches)
+          return elemRef.current.classList.remove("scrolled");
+
+        if (window.scrollY > 125) {
+          elemRef.current.classList.add("scrolled");
+        } else {
+          elemRef.current.classList.remove("scrolled");
+        }
+      } else if (page === "home") {
+        // Ensure the page is set to dark mode
+        if (window.matchMedia("(prefers-color-scheme: light)").matches)
+          return elemRef.current.classList.remove("scrolled");
+        else
+          elemRef.current.classList.add("scrolled");
+      }
+    }
 export default Header;
