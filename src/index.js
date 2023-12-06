@@ -48,24 +48,26 @@ function Navigation() {
 
   // Return the routes for the application
   return (
-      <div
-        className={`root-page ${transitionStage}`}
-        data-page-name={page}
-        onAnimationEnd={(() => {
-          if (transitionStage === "fadeOut") {
-            setTransitionStage("fadeIn");
-            setDisplayLocation(location);
-          }
-        })}
-      >
-        <Routes location={displayLocation}>
-          <Route path="/" key="/" element={<HomePage />} />
-          <Route path="/home" key="/" element={<HomePage />} />
-          <Route path="/projects" key="/projects" element={<ProjectPage />} />
-          <Route path="/projects" key="/projects/:project" element={<ProjectPage />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </div>
+    <div
+      className={`root-page ${transitionStage}`}
+      data-page-name={page}
+      onAnimationEnd={(() => {
+        if (transitionStage === "fadeOut") {
+          setTransitionStage("fadeIn");
+          setDisplayLocation(location);
+        }
+      })}
+    >
+      <Routes location={displayLocation}>
+        <Route path="/" key="/" element={<HomePage />} />
+        <Route path="/home" key="/" element={<HomePage />} />
+        <Route path="/projects" key="/projects" element={<ProjectPage />} />
+        <Route path="/projects" key="/projects/:project" element={<ProjectPage />} />
+        <Route path="*" element={() => {
+          return (<Error404 />)
+        }} />
+      </Routes>
+    </div>
   );
 }
 
