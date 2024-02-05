@@ -107,17 +107,8 @@ const projects: ProjectObj[] = [
   }, {
     name: "Billybobbeep Dashboard",
     description: "A dashboard to change the settings and preferences of Billybobbeep",
-    links: [{
-      text: "Github Repo",
-      url: "https://github.com/Billybobbeep/Dashboard",
-      target: "_blank",
-      children: <FontAwesomeIcon icon={faGithub} />
-    }, {
-      text: "View Project",
-      url: "https:/billybobbeep.com",
-      target: "_blank",
-      children: <FontAwesomeIcon icon={faEye} />
-    }],
+    date: "Coming Soon",
+    links: [],
     image: "/images/billybobbeep-icon.webp",
     tags: ["CSS", "Express", "HTML", "JavaScript", "MongoDB"],
     frameworks: ["Bootstrap"],
@@ -148,16 +139,6 @@ const contributions: ContributionObj[] = [
     links: [{
       text: "Github Repo",
       url: "https://github.com/ChristopherBThai/Discord-OwO-Bot",
-      target: "_blank",
-      children: <FontAwesomeIcon icon={faGithub} />
-    }]
-  }, {
-    name: "ClassCharts API JS",
-    description: "A javascript wrapper for getting information from the ClassCharts API",
-    githubApiLink: "https://api.github.com/repos/classchartsapi/classcharts-api-js",
-    links: [{
-      text: "Github Repo",
-      url: "https://github.com/classchartsapi/classcharts-api-js",
       target: "_blank",
       children: <FontAwesomeIcon icon={faGithub} />
     }]
