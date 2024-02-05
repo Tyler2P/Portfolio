@@ -200,6 +200,9 @@ header > .wrapper.scrolled section.branding h1 {
     height: 3px;
     margin: 5px;
   }
+  header > .wrapper.scrolled section.navigation-menu .hamburger > div {
+    background-color: rgb(6, 6, 7);
+  }
   header > .wrapper section.navigation-menu ul {
     transition: all 1s ease-out;
     box-shadow:  41px 41px 82px #2e3036, -41px -41px 82px #3e4248;
