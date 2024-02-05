@@ -21,7 +21,8 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(170, 170, 170);
 }
 body::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:focus {
+body::-webkit-scrollbar-thumb:focus,
+body::-webkit-scrollbar-thumb:active {
   background: rgb(113, 113, 113);
 }
 

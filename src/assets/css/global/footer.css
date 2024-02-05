@@ -40,7 +40,9 @@ footer > .wrapper ul li a {
   color: rgb(255, 255, 255);
   font-size: 1rem;
 }
-footer > .wrapper ul li a:hover {
+footer > .wrapper ul li a:hover,
+footer > .wrapper ul li a:focus,
+footer > .wrapper ul li a:active {
   color: rgb(178, 178, 178);
 }
 
@@ -56,7 +58,9 @@ footer > .wrapper ul li a:hover {
   footer > .wrapper ul li {
     color: rgb(77, 86, 94);
   }
-  footer > .wrapper ul li a:hover {
+  footer > .wrapper ul li a:hover,
+  footer > .wrapper ul li a:focus,
+  footer > .wrapper ul li a:active {
     color: rgb(35, 39, 43);
   }
 }

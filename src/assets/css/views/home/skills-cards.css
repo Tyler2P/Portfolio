@@ -30,7 +30,9 @@ section#skills > .skill-card-wrapper .skill-card {
 section#skills > .skill-card-wrapper .skill-card.special {
   background-color: rgb(255, 244, 112);
 }
-section#skills > .skill-card-wrapper .skill-card:hover {
+section#skills > .skill-card-wrapper .skill-card:hover,
+section#skills > .skill-card-wrapper .skill-card:focus,
+section#skills > .skill-card-wrapper .skill-card:active {
   transform: translateY(-1rem);
 }
 

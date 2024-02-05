@@ -138,11 +138,19 @@ header > .wrapper.scrolled section.branding h1 {
     color: rgb(0, 0, 0);
   }
   header > .wrapper section.action-row a i:hover,
-  header > .wrapper section.action-row a svg:hover {
+  header > .wrapper section.action-row a i:focus,
+  header > .wrapper section.action-row a i:active,
+  header > .wrapper section.action-row a svg:hover,
+  header > .wrapper section.action-row a svg:focus,
+  header > .wrapper section.action-row a svg:active {
     color: rgb(200, 200, 200);
   }
   header > .wrapper.scrolled section.action-row a i:hover,
-  header > .wrapper.scrolled section.action-row a svg:hover {
+  header > .wrapper.scrolled section.action-row a i:focus,
+  header > .wrapper.scrolled section.action-row a i:active,
+  header > .wrapper.scrolled section.action-row a svg:hover,
+  header > .wrapper.scrolled section.action-row a svg:focus,
+  header > .wrapper.scrolled section.action-row a svg:active {
     color: rgb(58, 59, 40);
   }
   @media (prefers-color-scheme: light) {
@@ -155,11 +163,19 @@ header > .wrapper.scrolled section.branding h1 {
       color: rgb(255, 255, 255);
     }
     header > .wrapper section.action-row a i:hover,
-    header > .wrapper section.action-row a svg:hover {
+    header > .wrapper section.action-row a i:focus,
+    header > .wrapper section.action-row a i:active,
+    header > .wrapper section.action-row a svg:hover,
+    header > .wrapper section.action-row a svg:focus,
+    header > .wrapper section.action-row a svg:active {
       color: rgb(58, 59, 40);
     }
     header > .wrapper.scrolled section.action-row a i:hover,
-    header > .wrapper.scrolled section.action-row a svg:hover {
+    header > .wrapper.scrolled section.action-row a i:focus,
+    header > .wrapper.scrolled section.action-row a i:active,
+    header > .wrapper.scrolled section.action-row a svg:hover,
+    header > .wrapper.scrolled section.action-row a svg:focus,
+    header > .wrapper.scrolled section.action-row a svg:active {
       color: rgb(200, 200, 200);
     }
   }
@@ -268,11 +284,19 @@ header > .wrapper.scrolled section.branding h1 {
     color: rgb(0, 0, 0);
   }
   header > .wrapper section.action-row a i:hover,
-  header > .wrapper section.action-row a svg:hover {
+  header > .wrapper section.action-row a i:focus,
+  header > .wrapper section.action-row a i:active,
+  header > .wrapper section.action-row a svg:hover,
+  header > .wrapper section.action-row a svg:focus,
+  header > .wrapper section.action-row a svg:active {
     color: rgb(200, 200, 200);
   }
   header > .wrapper.scrolled section.action-row a i:hover,
-  header > .wrapper.scrolled section.action-row a svg:hover {
+  header > .wrapper.scrolled section.action-row a i:focus,
+  header > .wrapper.scrolled section.action-row a i:hover,
+  header > .wrapper.scrolled section.action-row a svg:hover,
+  header > .wrapper.scrolled section.action-row a svg:focus,
+  header > .wrapper.scrolled section.action-row a svg:active {
     color: rgb(58, 59, 40);
   }
   @media (prefers-color-scheme: light) {
@@ -285,11 +309,19 @@ header > .wrapper.scrolled section.branding h1 {
       color: rgb(255, 255, 255);
     }
     header > .wrapper section.action-row a i:hover,
-    header > .wrapper section.action-row a svg:hover {
+    header > .wrapper section.action-row a i:focus,
+    header > .wrapper section.action-row a i:active,
+    header > .wrapper section.action-row a svg:hover,
+    header > .wrapper section.action-row a svg:focus,
+    header > .wrapper section.action-row a svg:active {
       color: rgb(58, 59, 40);
     }
     header > .wrapper.scrolled section.action-row a i:hover,
-    header > .wrapper.scrolled section.action-row a svg:hover {
+    header > .wrapper.scrolled section.action-row a i:focus,
+    header > .wrapper.scrolled section.action-row a i:hover,
+    header > .wrapper.scrolled section.action-row a svg:hover,
+    header > .wrapper.scrolled section.action-row a svg:focus,
+    header > .wrapper.scrolled section.action-row a svg:active {
       color: rgb(200, 200, 200);
     }
   }

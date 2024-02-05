@@ -60,7 +60,9 @@ div.page[data-page=projects] > div.projects-grid {
   div.page[data-page=contributions] > div.projects-grid::-webkit-scrollbar-thumb:hover,
   div.page[data-page=projects] > div.projects-grid::-webkit-scrollbar-thumb:hover,
   div.page[data-page=contributions] > div.projects-grid::-webkit-scrollbar-thumb:focus,
-  div.page[data-page=projects] > div.projects-grid::-webkit-scrollbar-thumb:focus {
+  div.page[data-page=projects] > div.projects-grid::-webkit-scrollbar-thumb:focus,
+  div.page[data-page=contributions] > div.projects-grid::-webkit-scrollbar-thumb:active,
+  div.page[data-page=projects] > div.projects-grid::-webkit-scrollbar-thumb:active {
     background: rgb(113, 113, 113);
   }
 }
