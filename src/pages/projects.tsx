@@ -87,7 +87,7 @@ const projects: ProjectObj[] = [
       children: <FontAwesomeIcon icon={faEye} />
     }],
     image: "/images/welsh-wedding-photography-icon.webp",
-    tags: ["CSS", "Express", "EJS", "JavaScript", "MySQL"],
+    tags: ["CSS", "Express", "HTML", "JavaScript", "MySQL"],
     frameworks: ["Bootstrap"],
     libraries: ["Font Awesome"]
   }
