@@ -43,7 +43,8 @@ interface ProjectObj {
     small?: boolean;
     large? : boolean;
     moreInformation?: InformationButtonState;
-    largeTitle?: boolean;
+    longTitle?: boolean;
+    longDescription?: boolean;
   }
 }
 interface ContributionObj {
@@ -57,14 +58,15 @@ interface ContributionObj {
     small?: boolean;
     large? : boolean;
     moreInformation?: InformationButtonState;
-    largeTitle?: boolean;
+    longTitle?: boolean;
+    longDescription?: boolean;
   }
 }
 
 const projects: ProjectObj[] = [
   {
     name: "Portfolio",
-    description: "My portfolio",
+    description: "An interactive portfolio showcasing my projects.",
     date: "2023-11-15",
     links: [{
       text: "Github Repo",
@@ -78,7 +80,7 @@ const projects: ProjectObj[] = [
     libraries: ["Font Awesome"]
   }, {
     name: "Welsh Wedding Photography",
-    description: "A feature-rich website for a wedding photography business serving all of Wales. Featuring a contact page and a comprehensive blog system with full posting capabilities.",
+    description: "A feature-rich website for a wedding photography business serving all of Wales. Featuring a contact page and a comprehensive blog system.",
     date: "2024-10-09",
     links: [{
       text: "View Project",
@@ -89,7 +91,11 @@ const projects: ProjectObj[] = [
     image: "/images/welsh-wedding-photography-icon.webp",
     tags: ["CSS", "Express", "HTML", "JavaScript", "MySQL"],
     frameworks: ["Bootstrap"],
-    libraries: ["Font Awesome"]
+    libraries: ["Font Awesome"],
+    options: {
+      longTitle: true,
+      longDescription: true
+    }
   }
 ];
 
@@ -106,7 +112,7 @@ const contributions: ContributionObj[] = [
       children: <FontAwesomeIcon icon={faGithub} />
     }],
     options: {
-      largeTitle: true
+      longTitle: true
     }
   }, {
     name: "Discord OwO Bot",
@@ -167,7 +173,8 @@ function ProjectsGrid(): JSX.Element {
                 `${project.options?.small ? "card-small" : ""}`,
                 `${project.options?.large ? "card-large" : ""}`,
                 `${!project.options?.small && !project.options?.large ? "card-medium" : ""}`,
-                `${project.options?.largeTitle ? "large-title" : ""}`,
+                `${project.options?.longTitle ? "long-title" : ""}`,
+                `${project.options?.longDescription ? "long-description" : ""}`,
                 `${project.archived ? "archived" : ""}`
               ].join(" ").trim()} key={index}
             >
@@ -276,7 +283,8 @@ function ContributionsGrid(): JSX.Element {
               `${contribution.options?.small ? "card-small" : ""}`,
               `${contribution.options?.large ? "card-large" : ""}`,
               `${!contribution.options?.small && !contribution.options?.large ? "card-medium" : ""}`,
-              `${contribution.options?.largeTitle ? "large-title" : ""}`
+              `${contribution.options?.longTitle ? "long-title" : ""}`,
+              `${contribution.options?.longDescription ? "long-description" : ""}`
             ].join(" ")} key={index}
           >
             <div className="project-image-wrapper card-img-top">

@@ -4,8 +4,10 @@ div.page[data-page=contributions] > div.projects-grid > div.project {
   padding: 1rem;
   width: 25rem;
   min-width: 25rem;
-  height: 26rem;
-  min-height: 26rem;
+  max-width: 25rem;
+  height: 27.5rem;
+  min-height: 27.5rem;
+  max-height: 27.5rem;
 }
 div.page[data-page=projects] > div.projects-grid > div.project.archived,
 div.page[data-page=contributions] > div.projects-grid > div.project.archived {
@@ -27,7 +29,8 @@ div.page[data-page=projects] > div.projects-grid > div.project::before {
 /* Project Card > Project Image */
 div.page[data-page=contributions] > div.projects-grid > div.project .project-image-wrapper,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image-wrapper {
-  height: 10rem;
+  min-height: 10rem;
+  max-height: 10rem;
 }
 div.page[data-page=contributions] > div.projects-grid > div.project .project-image,
 div.page[data-page=projects] > div.projects-grid > div.project .project-image {
@@ -97,8 +100,8 @@ div.page[data-page=projects] > div.projects-grid > div.project .project-image > 
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-div.page[data-page=contributions] > div.projects-grid > div.project.large-title .project-image > .project-image-overlay > h3,
-div.page[data-page=projects] > div.projects-grid > div.project.large-title .project-image > .project-image-overlay > h3 {
+div.page[data-page=contributions] > div.projects-grid > div.project.long-title .project-image > .project-image-overlay > h3,
+div.page[data-page=projects] > div.projects-grid > div.project.long-title .project-image > .project-image-overlay > h3 {
   font-size: 1.55rem;
 }
 /* Project Card > Card Body */
@@ -110,14 +113,18 @@ div.page[data-page=projects] > div.projects-grid > div.project > .project-body {
 div.page[data-page=contributions] > div.projects-grid > div.project > .project-body > p,
 div.page[data-page=projects] > div.projects-grid > div.project > .project-body > p {
   color: rgb(54, 57, 63);
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0;
+}
+div.page[data-page=contributions] > div.projects-grid > div.project.long-description > .project-body > p,
+div.page[data-page=projects] > div.projects-grid > div.project.long-description > .project-body > p {
+  font-size: 1rem;
 }
 div.page[data-page=contributions] > div.projects-grid > div.project.card-medium > .project-body > p {
   min-height: 7rem;
 }
 div.page[data-page=projects] > div.projects-grid > div.project.card-medium > .project-body > p {
-  min-height: 5rem;
+  min-height: 6.5rem;
 }
 div.page[data-page=contributions] > div.projects-grid > div.project.card-large > .project-body > p,
 div.page[data-page=projects] > div.projects-grid > div.project.card-large > .project-body > p {
