@@ -11,8 +11,8 @@ import Footer from "../includes/footer";
 import { ArchivedProjectModal } from "includes/modals";
 
 type InformationButtonState = "enabled" | "disabled";
-type TagOptions = "AWS" | "CSS" | "Docker" | "Express" | "Git" | "HTML" | "JavaScript" | "MongoDB" | "Mongoose" | "Node.js" | "React" | "TypeScript" | "Webpack";
-type FrameworkOptions = "Bootstrap" | "jQuery";
+type TagOptions = "AWS" | "CSS" | "Docker" | "Express" | "Git" | "HTML" | "JavaScript" | "MongoDB" | "Mongoose" | "Node.js" | "React" | "MySQL" | "TypeScript" | "Webpack";
+type FrameworkOptions = "Bootstrap" | "jQuery" | "Tippy" | "PopperJS";
 type LibraryOptions = "Google Fonts" | "Font Awesome";
 type StatsDataType = {
   [key: string]: {
@@ -77,42 +77,19 @@ const projects: ProjectObj[] = [
     frameworks: ["Bootstrap"],
     libraries: ["Font Awesome"]
   }, {
-    name: "Beauty by Rachel",
-    description: "An appointment booking app for a small business",
-    date: "2021-03-27",
+    name: "Welsh Wedding Photography",
+    description: "A feature-rich website for a wedding photography business serving all of Wales. Featuring a contact page and a comprehensive blog system with full posting capabilities.",
+    date: "2024-10-09",
     links: [{
       text: "View Project",
-      url: "https://web.archive.org/web/20220311105922/https://beauty-by-rachel.co.uk/home",
+      url: "https://welshweddingphotography.co.uk",
       target: "_blank",
       children: <FontAwesomeIcon icon={faEye} />
     }],
-    image: "/images/beautybyrachel-icon.webp",
-    tags: ["CSS", "Express", "HTML", "JavaScript"],
-    frameworks: ["Bootstrap", "jQuery"],
-    libraries: ["Font Awesome", "Google Fonts"],
-    archived: true
-  }, {
-    name: "Billybobbeep",
-    description: "A Discord bot for server owners to keep track of their server",
-    date: "2020-06-06",
-    githubApiLink: "https://api.github.com/repos/Billybobbeep/Billybobbeep",
-    links: [{
-      text: "Github Repo",
-      url: "https://github.com/Billybobbeep/Billybobbeep",
-      target: "_blank",
-      children: <FontAwesomeIcon icon={faGithub} />
-    }],
-    image: "/images/billybobbeep-icon.webp",
-    tags: ["JavaScript", "TypeScript"]
-  }, {
-    name: "Billybobbeep Dashboard",
-    description: "A dashboard to change the settings and preferences of Billybobbeep",
-    date: "Coming Soon",
-    links: [],
-    image: "/images/billybobbeep-icon.webp",
-    tags: ["CSS", "Express", "HTML", "JavaScript", "MongoDB"],
+    image: "/images/welsh-wedding-photography-icon.webp",
+    tags: ["CSS", "Express", "EJS", "JavaScript", "MySQL"],
     frameworks: ["Bootstrap"],
-    libraries: ["Font Awesome", "Google Fonts"]
+    libraries: ["Font Awesome"]
   }
 ];
 
