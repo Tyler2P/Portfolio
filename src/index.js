@@ -1,6 +1,6 @@
 // Default React Imports
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 // Third Party Imports
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 // Pages
@@ -72,7 +72,8 @@ function Navigation() {
 }
 
 // Render the HTML body
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Header page={getPage} />
