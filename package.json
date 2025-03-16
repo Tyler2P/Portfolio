@@ -4,27 +4,27 @@
   "private": true,
   "homepage": "/",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-brands-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.0.1",
-    "@testing-library/user-event": "^14.5.2",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.9.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "aphrodite": "^2.4.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0",
-    "react-scripts": "5.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.3.0",
+    "react-scripts": "^5.0.1",
     "serve": "^14.2.4",
-    "terser-webpack-plugin": "^5.3.10",
-    "typescript": "^5.6.3",
+    "terser-webpack-plugin": "^5.3.14",
+    "typescript": "^5.8.2",
     "web-vitals": "^4.2.4",
-    "webpack": "^5.96.1"
+    "webpack": "^5.98.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -54,6 +54,6 @@
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
-    "style-loader": "^3.3.1"
+    "style-loader": "^4.0.0"
   }
 }
