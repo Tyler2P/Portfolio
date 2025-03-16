@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { JSX, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCode } from "@fortawesome/free-solid-svg-icons";

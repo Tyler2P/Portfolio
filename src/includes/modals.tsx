@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { JSX, useRef, useState, useEffect } from "react";
 // Stylesheets
 import "../../src/assets/css/views/modals.css";
 

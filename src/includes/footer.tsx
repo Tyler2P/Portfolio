@@ -1,5 +1,5 @@
 // Dependencies
-import React from "react";
+import React, { JSX } from "react";
 // Stylesheets
 import "../../src/assets/css/global/footer.css";
 

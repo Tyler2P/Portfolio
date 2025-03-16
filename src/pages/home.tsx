@@ -1,5 +1,5 @@
 // Dependencies
-import React from "react";
+import React, { JSX } from "react";
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHtml5, faJsSquare, faCss3Alt, faNodeJs, faReact } from "@fortawesome/free-brands-svg-icons";
